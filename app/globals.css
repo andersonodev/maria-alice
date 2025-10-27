@@ -1,0 +1,97 @@
+:root {
+  font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: #0b0b0f;
+}
+
+.hearts {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.hearts span {
+  position: absolute;
+  bottom: -150px;
+  width: 24px;
+  height: 21px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 105, 180, 0.95), rgba(255, 20, 147, 0.4));
+  transform: rotate(45deg) scale(0.8);
+  animation: float var(--duration, 18s) linear infinite;
+  animation-delay: calc(var(--i) * -1.3s);
+  box-shadow: 0 0 12px rgba(255, 20, 147, 0.45);
+}
+
+.hearts span::before,
+.hearts span::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 21px;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.hearts span::before {
+  top: -12px;
+  left: 0;
+}
+
+.hearts span::after {
+  left: 12px;
+  top: 0;
+}
+
+.hearts span:nth-child(odd) {
+  --duration: 14s;
+}
+
+.hearts span:nth-child(even) {
+  --duration: 20s;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) rotate(45deg) scale(0.7);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(45deg) scale(1.2);
+    opacity: 0;
+  }
+}
+
+main {
+  font-family: inherit;
+}
+
+h1,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-weight: 600;
+}
+
+p {
+  line-height: 1.6;
+}
+
+code {
+  font-family: 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
